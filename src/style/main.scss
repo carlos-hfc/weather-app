@@ -7,16 +7,26 @@ $cloud: radial-gradient(circle at 10% 20%, rgb(168, 153, 142) 0%, rgb(91, 95, 99
 $rain: radial-gradient(circle at 10% 20%, rgb(138, 132, 127) 0%, rgb(69, 71, 73) 45.5%);
 $snow: radial-gradient(circle at 10% 20%, rgb(205, 206, 207) 0%, rgb(108, 122, 126) 45.5%);
 
+$backgrounds: (
+  clear: $clear,
+  cloud: $cloud,
+  rain: $rain,
+  snow: $snow
+);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: $clear;
-}
-
 .condition-image {
   object-fit: contain;
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.75));
+}
+
+@each $key, $value in $backgrounds {
+  .bg-#{$key} {
+    background: $value;
+  }
 }
