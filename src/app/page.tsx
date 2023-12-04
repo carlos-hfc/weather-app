@@ -11,10 +11,18 @@ import { groupCondition } from "@/utils";
 export default function Home() {
   const [location, setLocation] = useState('');
   const [data, setData] = useState<WeatherResponse | null>(null);
+  const [error, setError] = useState(false);
 
   async function search(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
       const data = await searchLocation(location);
+
+      if (!data) {
+        setData(null);
+        return setError(true);
+      }
+
+      setError(false);
 
       setData(data);
     }
@@ -30,6 +38,12 @@ export default function Home() {
             onKeyDown={search}
           />
         </div>
+
+        {error && (
+          <div className="flex text-white font-medium text-2xl">
+            Cidade não encontrada!!
+          </div>
+        )}
 
         {data && (
           <div className="flex flex-col justify-center items-center gap-6 md:flex-row md:gap-20">
