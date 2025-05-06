@@ -3,15 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'flagsapi.com',
-        protocol: 'https'
+        hostname: "flagsapi.com",
+        protocol: "https",
       },
       {
-        hostname: 'openweathermap.org',
-        protocol: 'https'
+        hostname: "openweathermap.org",
+        protocol: "https",
       },
-    ]
-  }
-};
+    ],
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
