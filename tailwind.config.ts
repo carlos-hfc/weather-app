@@ -22,5 +22,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: ["bg-clear", "bg-cloud", "bg-rain", "bg-snow"],
 }
 export default config
